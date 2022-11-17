@@ -8,7 +8,7 @@ import { Student } from '../Components/Student/student';
 })
 export class StudentService {
 
-  private baseUrl = "http://localhost:8080/students";
+  private baseUrl = "https://backen-proyecto-final-electiva.herokuapp.com/students";
 
   constructor(private httpStudent: HttpClient) { }
 

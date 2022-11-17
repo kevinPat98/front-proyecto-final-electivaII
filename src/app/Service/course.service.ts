@@ -8,7 +8,7 @@ import { Course } from '../Components/Course/course';
 })
 export class CourseService {
 
-  private baseUrl = "http://localhost:8080/courses";
+  private baseUrl = "https://backen-proyecto-final-electiva.herokuapp.com/courses";
 
   constructor(private httpCourse: HttpClient) { }
 

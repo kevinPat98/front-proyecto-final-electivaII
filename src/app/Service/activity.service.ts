@@ -8,7 +8,7 @@ import { Activity } from '../Components/Activity/activity';
 })
 export class ActivityService {
 
-  private baseUrl = "http://localhost:8080/activities";
+  private baseUrl = "https://backen-proyecto-final-electiva.herokuapp.com/activities";
 
   constructor(private httpActivity: HttpClient) { }
 
