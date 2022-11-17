@@ -1,0 +1,29 @@
+<h2>Lista de Estudiantes</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let student of students">
+    <div
+      class="card border-success mb-3"
+      style="max-width: 18rem;"
+    >
+      <img
+        src="../../../../assets/icons/students.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          {{ student.name }} {{ student.lastName }}
+        </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ student.phone }}</li>
+        <li class="list-group-item">{{ student.email }}</li>
+      </ul>
+      <div class="card-body">
+        <a (click)="updateStudent(student.id)" class="btn btn-warning">Editar</a>
+        <a (click)="detailsStudent(student.id)" class="btn btn-primary" style="margin-left: 10px;">Detalles</a>
+        <a (click)="deleteStudent(student.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<h2>Detalles del Estudiante {{ student.name }}</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col"></div>
+  <div class="col">
+    <div class="card border-success mb-3" style="max-width: 18rem">
+      <img
+        src="../../../../assets/icons/students.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          {{ student.name }} {{ student.lastName }}
+        </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ student.phone }}</li>
+        <li class="list-group-item">{{ student.email }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="text-center"><h2>Lista de sus cursos</h2></div>
+<table class="table table-striped ">
+  <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Nota General</th>
+      <th>Avance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let hello of element">
+      <td>{{ hello.id }}</td>
+      <td>{{ hello.name }}</td>
+      <td>{{ hello.noteGeneral }}</td>
+      <td>{{ hello.advanceGeneral }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col"></div>
+  <div class="col">
+    <div class="card border-success mb-3" style="max-width: 18rem">
+      <img
+        src="../../../../assets/icons/students.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          {{ student.name }} {{ student.lastName }}
+        </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ student.phone }}</li>
+        <li class="list-group-item">{{ student.email }}</li>
+      </ul>
+      <div class="card-body">
+        <div class="text-center">
+          <a (click)="updateStudent(student.id)" class="btn btn-warning"
+            >Editar</a
+          >
+          <a (click)="listStudent()" class="btn btn-primary" style="margin-left: 10px;">Lista</a>
+          <a
+            (click)="deleteStudent(student.id)"
+            class="btn btn-danger"
+            style="margin-left: 10px"
+            >Eliminar</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

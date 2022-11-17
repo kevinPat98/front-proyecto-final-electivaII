@@ -1,0 +1,30 @@
+<h2>Lista de Actividades</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let activity of activitys">
+    <div
+      class="card border-success mb-3"
+      style="max-width: 18rem;"
+    >
+      <img
+        src="../../../../assets/icons/mobile.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          {{ activity.name }} 
+        </h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ activity.expirationDate }}</li>
+        <li class="list-group-item">Nota: {{ activity.note }}</li>
+        <li class="list-group-item">Porcentaje: {{ activity.valueNote }}</li>
+      </ul>
+      <div class="card-body">
+        <a (click)="updateActivity(activity.id)" class="btn btn-warning">Editar</a>
+        <a (click)="detailsActivity(activity.id)" class="btn btn-primary" style="margin-left: 10px;">Detalles</a>
+        <a (click)="deleteActivity(activity.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</a>
+      </div>
+    </div>
+  </div>
+</div>

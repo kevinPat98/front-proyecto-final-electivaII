@@ -1,0 +1,112 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Registro de Actividades</h3>
+  <form (ngSubmit)="onSubmit()" #forma="ngForm">
+    <div class="text-center">
+      <img
+        src="../../../../assets/icons/online-activity.png"
+        height="300"
+        width="300"
+      />
+    </div>
+    <div class="form-group">
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="activity.name"
+            name="name"
+            required
+            placeholder="Escriba su nombre"
+            #name="ngModel"
+          />
+          <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched )">
+            <div *ngIf="name.errors['required']">
+              Digite el nombre de la actividad por favor
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Dia de expiracion</label>
+        <div class="col-sm-10">
+          <input
+            type="datetime-local"
+            class="form-control"
+            id="expirationDate"
+            [(ngModel)]="activity.expirationDate"
+            name="expirationDate"
+            required
+            #expirationDate="ngModel"
+          />
+          <div class="alert alert-danger" *ngIf="expirationDate.invalid && (expirationDate.dirty || expirationDate.touched )">
+            <div *ngIf="expirationDate.errors['required']">
+              Seleccione la fecha por favor
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Nota</label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="note"
+            [(ngModel)]="activity.note"
+            name="note"
+            required
+            placeholder="Escriba la nota"
+            pattern="^[0-5]+(.[0-5]+)?$"
+            #note="ngModel"
+          />
+          <div class="alert alert-danger" *ngIf="note.invalid && (note.dirty || note.touched )">
+            <div *ngIf="note.errors['required']">
+              Digite la nota por favor
+            </div>
+            <div *ngIf="note.errors['pattern']">
+              Introduzca la nota de 0 a 5
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Valor de Nota (%)</label>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="valueNote"
+            [(ngModel)]="activity.valueNote"
+            name="valueNote"
+            required
+            placeholder="Escriba el porcentaje de la nota"
+            #valueNote="ngModel"
+            pattern="(^100(\.0{1,2})?$)|(^([1-9]([0-9])?|0)(\.[0-9]{1,2})?$)"
+          />
+          <div class="alert alert-danger" *ngIf="valueNote.invalid && (valueNote.dirty || valueNote.touched )">
+            <div *ngIf="valueNote.errors['required']">
+              Digite el porcentaje de la nota por favor
+            </div>
+            <div *ngIf="note.errors['pattern']">
+              Introduzca el formato correcto 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Cursos</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example" name="activity" [(ngModel)]="activity.course" required>
+            <option [value]="course.id" *ngFor="let course of courses">{{course.name}}</option>
+          </select>  
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button [disabled]="forma.invalid" class="btn btn-success">Guardar</button>
+    </div>
+  </form>
+</div>
